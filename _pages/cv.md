@@ -7,4 +7,4 @@ redirect_from:
   - /resume
 ---
 
-![My Resume](./images/resume.jpg)
+![My CV](./files/cv.pdf)
