@@ -11,14 +11,14 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* BSE in Computer and Information Sciences, University of Pennsylvania, May 2024
+  * Minor in Survey Research and Data Analytics and Political Science
+* Exchange Student in the Faculty of Science, University of Melbourne, Feb 2023 - Jun 2023 
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
+* July 2024-Present: Senior Research Support Associate
+  * MIT Election + Data Science Lab (MEDSL)
   * Duties includes: Updates and improvements to template
   * Supervisor: The Users
 
@@ -32,14 +32,10 @@ Work experience
   * Duties included: Tagging issues
   * Supervisor: Professor Git
   
-Skills
+Skills and interests
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+Java, R, C, Python, Bash, Datawrapper, JavaScript, LaTeX, HTML, Excel, SQL, MongoDB, Neo4j, SolidWorks, OCaml, Assembly (LC4), Spanish (Proficient), photography, mock trial
+
 
 Publications
 ======
