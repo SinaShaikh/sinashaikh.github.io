@@ -7,4 +7,4 @@ redirect_from:
   - /resume
 ---
 
-![My CV](./files/cv.pdf)
+![My CV](./files/CV_2025_09_03.pdf)
