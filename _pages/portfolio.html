@@ -69,48 +69,48 @@ author_profile: true
 </div>
 
 <script>
-  const imageFolder = '/images/';
+  document.addEventListener('DOMContentLoaded', function () {
+    const imageFolder = '/images/';
 
-  // ✅ Update with your image file names
-  const imageNames = [
-    'pic03.jpeg',
-    'pic04.jpeg',
-    'pic05.jpeg',
-    'pic06.jpeg',
-    'pic07.jpg',
-    'pic08.jpeg',
-    'pic09.jpg',
-    'pic10.jpg',
-    'pic11.jpeg',
-    'pic12.jpg'
-  ];
+    const imageNames = [
+      'pic03.jpeg',
+      'pic04.jpeg',
+      'pic05.jpeg',
+      'pic06.jpeg',
+      'pic07.jpg',
+      'pic08.jpeg',
+      'pic09.jpg',
+      'pic10.jpg',
+      'pic11.jpeg',
+      'pic12.jpg'
+    ];
 
-  const carousel = document.querySelector('.carousel');
+    const carousel = document.querySelector('.carousel');
 
-  // Add images to carousel
-  imageNames.forEach((name, index) => {
-    const img = document.createElement('img');
-    img.src = imageFolder + name;
-    if (index === 0) img.classList.add('active');
-    carousel.appendChild(img);
-  });
-
-  const images = document.querySelectorAll('.carousel img');
-  let currentIndex = 0;
-
-  function showImage(index) {
-    images.forEach((img, i) => {
-      img.classList.toggle('active', i === index);
+    imageNames.forEach((name, index) => {
+      const img = document.createElement('img');
+      img.src = imageFolder + name;
+      if (index === 0) img.classList.add('active');
+      carousel.appendChild(img);
     });
-  }
 
-  document.querySelector('.prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage(currentIndex);
-  });
+    const images = document.querySelectorAll('.carousel img');
+    let currentIndex = 0;
 
-  document.querySelector('.next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage(currentIndex);
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    document.querySelector('.prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    });
+
+    document.querySelector('.next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    });
   });
 </script>
