@@ -178,6 +178,15 @@
       color: #888;
       font-size: 14px;
     }
+    .carousel-caption {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+    }
+
     
     @media (max-width: 600px) {
       body {
@@ -286,27 +295,28 @@
     </div>
   </div>
 
-  <!-- PHOTOS -->
-  <div id="photos" class="section">
+<!-- PHOTOS -->
+<div id="photos" class="section">
     <div class="carousel-container">
-      <div class="carousel">
-        <img src="images/pic03.jpeg" alt="Photo 1" class="carousel-image active">
-        <img src="images/pic04.jpeg" alt="Photo 2" class="carousel-image">
-        <img src="images/pic05.jpeg" alt="Photo 3" class="carousel-image">
-        <img src="images/pic06.jpeg" alt="Photo 4" class="carousel-image">
-        <img src="images/pic07.jpg" alt="Photo 5" class="carousel-image">
-        <img src="images/pic08.jpeg" alt="Photo 6" class="carousel-image">
-        <img src="images/pic09.jpg" alt="Photo 7" class="carousel-image">
-        <img src="images/pic10.jpg" alt="Photo 8" class="carousel-image">
-        <img src="images/pic11.jpeg" alt="Photo 9" class="carousel-image">
-        <img src="images/pic12.jpg" alt="Photo 10" class="carousel-image">
-      </div>
       <div class="carousel-controls">
         <button class="carousel-btn" onclick="previousImage()">Previous</button>
         <button class="carousel-btn" onclick="nextImage()">Next</button>
       </div>
       <div class="carousel-counter">
         <span id="current-image">1</span> / <span id="total-images">10</span>
+      </div>
+      <div class="carousel-caption" id="carousel-caption">Sword-Billed Hummingbird</div>
+      <div class="carousel">
+        <img src="images/pic10.jpg" alt="Sword-Billed Hummingbird" class="carousel-image active">
+        <img src="images/pic12.jpg" alt="Coyote" class="carousel-image">
+        <img src="images/pic03.jpeg" alt="Lapland Longspur" class="carousel-image">
+        <img src="images/pic04.jpeg" alt="Musk Ox" class="carousel-image">
+        <img src="images/pic07.jpg" alt="Arctic Tern" class="carousel-image">
+        <img src="images/pic05.jpeg" alt="Semipalmated Sandpiper" class="carousel-image">
+        <img src="images/pic06.jpeg" alt="King Eider" class="carousel-image">
+        <img src="images/pic09.jpg" alt="Cerulean Warbler" class="carousel-image">
+        <img src="images/pic08.jpeg" alt="Bluethroat" class="carousel-image">
+        <img src="images/pic11.jpeg" alt="Red-necked Grebe" class="carousel-image">
       </div>
     </div>
   </div>
@@ -321,12 +331,26 @@
     const images = document.querySelectorAll('.carousel-image');
     const totalImages = images.length;
     
+    const captions = [
+      'Sword-Billed Hummingbird',
+      'Coyote',
+      'Lapland Longspur',
+      'Musk Ox',
+      'Arctic Tern',
+      'Semipalmated Sandpiper',
+      'King Eider',
+      'Cerulean Warbler',
+      'Bluethroat',
+      'Red-necked Grebe'
+    ];
+    
     document.getElementById('total-images').textContent = totalImages;
     
     function showImage(index) {
       images.forEach(img => img.classList.remove('active'));
       images[index].classList.add('active');
       document.getElementById('current-image').textContent = index + 1;
+      document.getElementById('carousel-caption').textContent = captions[index];
     }
     
     function nextImage() {
