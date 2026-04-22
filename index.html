@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sina Shaikh</title>
+  <link rel="icon" href="kiwi-icon.png" type="image/png">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background: #fff;
+      color: #000;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 60px 30px;
+      max-width: none;
+      margin: 0;
+    }
+    
+    header {
+      margin-bottom: 40px;
+      max-width: 700px;
+    }
+    
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    
+    nav {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    
+    nav a {
+      color: #888;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    
+    nav a:hover {
+      color: #000;
+    }
+    
+    .section {
+      display: none;
+      max-width: 700px;
+    }
+    
+    .section.active {
+      display: block;
+    }
+    
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 30px;
+    }
+    
+    p {
+      margin-bottom: 16px;
+    }
+    
+    a {
+      color: #000;
+      text-decoration: underline;
+    }
+    
+    a:hover {
+      color: #0066cc;
+    }
+    
+    h2 {
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #888;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    
+    .item {
+      margin-bottom: 20px;
+    }
+    
+    .item-title {
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    
+    .item-meta {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 6px;
+    }
+    
+    .item-title a {
+      font-size: 14px;
+      margin-left: 4px;
+    }
+    
+    .teach-code {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    
+    .teach-item {
+      margin-bottom: 24px;
+    }
+    
+    .teach-item h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: 1px solid #e0e0e0;
+    }
+    
+    footer {
+      margin-top: 80px;
+      font-size: 13px;
+      color: #888;
+      max-width: 700px;
+    }
+    
+    @media (max-width: 600px) {
+      body {
+        padding: 30px 20px;
+      }
+      
+      .profile-image {
+        width: 150px;
+        height: 150px;
+      }
+      
+      iframe {
+        height: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><a href="#" onclick="showSection('home'); return false;" style="text-decoration: none; color: #000;">Sina Shaikh</a></h1>
+    <nav>
+      <a href="#research" onclick="showSection('research'); return false;">Research</a>
+      <a href="#teaching" onclick="showSection('teaching'); return false;">Teaching</a>
+      <a href="#photos" onclick="showSection('photos'); return false;">Photos</a>
+      <a href="#cv" onclick="showSection('cv'); return false;">CV</a>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <div id="home" class="section active">
+    <img src="sina-shaikh.jpg" alt="Sina Shaikh" class="profile-image">
+    
+    <p>Hi, I'm Sina. I work at MIT in the <a href="https://electionlab.mit.edu/">Elections Lab</a>. I recently graduated <em>Summa Cum Laude</em> from the <a href="https://upenn.edu">University of Pennsylvania</a> with a B.S.E. in computer science and a minor in political science.</p>
+    
+    <p>Over the past few years, I've worked as a research fellow for the <a href="https://pores.upenn.edu">Penn Program on Opinion Research and Election Studies</a>, the <a href="https://www.brookings.edu">Brookings Institution</a>, the <a href="https://global.upenn.edu/perryworldhouse">Perry World House</a>, and the <a href="https://css.seas.upenn.edu/">Computational Social Science Lab</a>, and on projects for <a href="https://guygrossman.com/">Guy Grossman</a> and <a href="https://sociology.sas.upenn.edu/people/jerry-jacobs">Jerry Jacobs</a>. I've also been a TA for CIS 110 and GAFL 5310, tutored for CRIM 4012, and worked on the Decision Desk for <a href="https://www.nbcnews.com">NBC News</a>.</p>
+    
+    <p>
+      <a href="mailto:sinas100@mit.edu">Email</a><br>
+      <a href="https://scholar.google.com/citations?user=xh4sA70AAAAJ&hl" target="_blank">Google Scholar</a><br>
+    </p>
+  </div>
+
+  <!-- RESEARCH -->
+  <div id="research" class="section">
+    <h2>In Progress</h2>
+    
+    <div class="item">
+      <div class="item-title">Why the Wait? Preprocessing, Mail Ballot Usage, and Vote Reporting Dynamics in the 2020 and 2024 Elections [<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6077970" target="_blank">Working Paper</a>]</div>
+      <div class="item-meta">With Charles Stewart III</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">A Two-Phase Algorithm for Optimal Quota Sampling</div>
+      <div class="item-meta">With Bailey Flanigan and Melody Huang</div>
+    </div>
+
+    <h2>Code & Data</h2>
+
+    <div class="item">
+      <div class="item-title">Elections Performance Central [<a href="https://github.com/Sinas100/election_scraper" target="_blank">Code</a>] [<a href="https://www.elexcentral.org/state-updates" target="_blank">Output</a>]</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">2024 County Level Election Results [<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ" target="_blank">Dataset</a>]</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">2024 Precinct Project [<a href="https://github.com/MEDSL/2024-elections-official" target="_blank">GitHub</a>]</div>
+    </div>
+
+    <h2>Selected Articles</h2>
+
+    <div class="item">
+      <div class="item-title">50% of full-time jobs among recent Penn grads are in finance and consulting, DP analysis finds [<a href="https://www.thedp.com/article/2023/09/penn-careers-consulting-finance-wharton-college-post-graduate-outcomes" target="_blank">Read</a>]</div>
+      <div class="item-meta">Cited in <a href="https://www.theatlantic.com/ideas/archive/2023/09/ivy-league-career-ambition-finance-consulting-tech-prestige/675497/" target="_blank">The Atlantic</a> and <a href="https://www.phillymag.com/news/2023/09/14/penn-finance-consulting-jobs/" target="_blank">Philadelphia Magazine</a></div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Penn, in Washington: the numbers behind 200 years of alumni, affiliates in Congress [<a href="https://www.thedp.com/article/2024/03/penn-alumni-affiliates-congress-history" target="_blank">Read</a>]</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Who are Penn's most-cited researchers? Here's what the DP found. [<a href="https://www.thedp.com/article/2024/01/penn-most-cited-researchers" target="_blank">Read</a>]</div>
+    </div>
+  </div>
+
+  <!-- TEACHING -->
+  <div id="teaching" class="section">
+    <div class="teach-item">
+      <div class="teach-code">CIS 110 · University of Pennsylvania</div>
+      <h3>Teaching Assistant — Introduction to Computer Programming</h3>
+      <p>Introductory OCaml and Java.</p>
+    </div>
+
+    <div class="teach-item">
+      <div class="teach-code">GAFL 5310 · University of Pennsylvania</div>
+      <h3>Teaching Assistant — Data Science for Public Policy</h3>
+      <p>Graduate course on the R Shiny framework, statistics, and mapping.</p>
+    </div>
+
+    <div class="teach-item">
+      <div class="teach-code">CRIM 4012 · University of Pennsylvania</div>
+      <h3>Tutor — Machine Learning for Social Science</h3>
+      <p>Introduction to supervised and unsupervised learning, deep learning, and natural language processing.</p>
+    </div>
+  </div>
+
+  <!-- PHOTOS -->
+  <div id="photos" class="section">
+    <p>Photos coming soon. In the meantime, you can view my portfolio <a href="https://sinashaikh.github.io/portfolio/" target="_blank">here</a>.</p>
+  </div>
+
+  <!-- CV -->
+  <div id="cv" class="section">
+    <iframe src="https://sinashaikh.github.io/Sina_Shaikh_CV.pdf" title="Sina Shaikh CV"></iframe>
+  </div>
+
+  <footer>© 2026 Sina Shaikh</footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      
+      if (id === 'home') {
+        history.pushState(null, '', window.location.pathname);
+      } else {
+        history.pushState(null, '', '#' + id);
+      }
+    }
+    
+    // Handle initial hash
+    const hash = window.location.hash.slice(1);
+    if (hash && document.getElementById(hash)) {
+      showSection(hash);
+    }
+  </script>
+
+</body>
+</html>
