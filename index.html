@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sina Shaikh</title>
-  <!-- Multiple favicon formats for better browser support -->
   <link rel="icon" type="image/png" sizes="32x32" href="kiwi-icon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="kiwi-icon.png">
   <link rel="icon" type="image/x-icon" href="kiwi-icon.ico">
@@ -47,18 +46,14 @@
       font-size: 15px;
     }
     
-    nav a:hover {
-      color: #000;
-    }
+    nav a:hover { color: #000; }
     
     .section {
       display: none;
       max-width: 700px;
     }
     
-    .section.active {
-      display: block;
-    }
+    .section.active { display: block; }
     
     .profile-image {
       width: 200px;
@@ -66,18 +61,53 @@
       margin-bottom: 30px;
     }
     
-    p {
-      margin-bottom: 16px;
+    p { margin-bottom: 16px; }
+    
+    a { color: #000; text-decoration: underline; }
+    a:hover { color: #0066cc; }
+
+    /* ── RESEARCH ──────────────────────────────────── */
+
+    /* Section header: small caps label with rule below */
+    #research h1 {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #999;
+      border-bottom: 1px solid #e8e8e8;
+      padding-bottom: 8px;
+      margin-top: 40px;
+      margin-bottom: 0;
+    }
+
+    #research h1:first-child {
+      margin-top: 0;
+    }
+
+    /* Items: compact, no separators within a section */
+    #research .item {
+      padding: 5px 0;
+      margin-bottom: 0;
+    }
+
+    .item-title {
+      font-weight: 400;
+      margin-bottom: 1px;
     }
     
-    a {
-      color: #000;
-      text-decoration: underline;
+    .item-meta {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 0;
     }
     
-    a:hover {
-      color: #0066cc;
+    .item-title a {
+      font-size: 14px;
+      margin-left: 4px;
     }
+
+    /* ── END RESEARCH ──────────────────────────────── */
     
     h2 {
       font-size: 13px;
@@ -88,26 +118,8 @@
       margin-top: 40px;
       margin-bottom: 20px;
     }
-    
-    .item {
-      margin-bottom: 20px;
-    }
-    
-    .item-title {
-      font-weight: 400;
-      margin-bottom: 4px;
-    }
-    
-    .item-meta {
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 6px;
-    }
-    
-    .item-title a {
-      font-size: 14px;
-      margin-left: 4px;
-    }
+
+    .item { margin-bottom: 20px; }
     
     .teach-code {
       font-size: 13px;
@@ -117,9 +129,7 @@
       margin-bottom: 4px;
     }
     
-    .teach-item {
-      margin-bottom: 24px;
-    }
+    .teach-item { margin-bottom: 24px; }
     
     .teach-item h3 {
       font-size: 16px;
@@ -133,7 +143,6 @@
       border: 1px solid #e0e0e0;
     }
     
-    /* Carousel styles */
     .carousel-container {
       position: relative;
       max-width: 700px;
@@ -147,17 +156,14 @@
     }
     
     .carousel-image {
-        width: 100%;
-        max-height: 600px;  /* Adjust this value to your preference */
-        height: auto;
-        object-fit: contain;  /* This keeps the aspect ratio without cropping */
-        display: none;
+      width: 100%;
+      max-height: 600px;
+      height: auto;
+      object-fit: contain;
+      display: none;
     }
-
     
-    .carousel-image.active {
-      display: block;
-    }
+    .carousel-image.active { display: block; }
     
     .carousel-controls {
       margin-top: 20px;
@@ -175,9 +181,7 @@
       font-size: 14px;
     }
     
-    .carousel-btn:hover {
-      background: #333;
-    }
+    .carousel-btn:hover { background: #333; }
     
     .carousel-counter {
       margin-top: 10px;
@@ -185,6 +189,7 @@
       color: #888;
       font-size: 14px;
     }
+
     .carousel-caption {
       margin-top: 20px;
       margin-bottom: 20px;
@@ -195,104 +200,60 @@
     }
 
     ul {
-        margin-left: 1.5rem;
-        padding-left: 1rem;
+      margin-left: 1.5rem;
+      padding-left: 1rem;
     }
     
     @media (max-width: 600px) {
-      body {
-        padding: 30px 20px;
-      }
-      
-      .profile-image {
-        width: 150px;
-      }
-      
-      iframe {
-        height: 600px;
-      }
+      body { padding: 30px 20px; }
+      .profile-image { width: 150px; }
+      iframe { height: 600px; }
     }
   </style>
 </head>
 <body>
 
-    <header>
-        <h1><a href="#" onclick="showSection('home'); return false;" style="text-decoration: none; color: #000;">Sina Shaikh</a></h1>
-        <nav>
-          <a href="#home" onclick="showSection('home'); return false;">About</a>
-          <a href="#research" onclick="showSection('research'); return false;">Research</a>
-          <a href="#teaching" onclick="showSection('teaching'); return false;">Teaching</a>
-          <a href="#photos" onclick="showSection('photos'); return false;">Photos</a>
-          <a href="#cv" onclick="showSection('cv'); return false;">CV</a>
-        </nav>
-      </header>
-    
+  <header>
+    <h1><a href="#" onclick="showSection('home'); return false;" style="text-decoration: none; color: #000;">Sina Shaikh</a></h1>
+    <nav>
+      <a href="#home"     onclick="showSection('home');     return false;">About</a>
+      <a href="#research" onclick="showSection('research'); return false;">Research</a>
+      <a href="#teaching" onclick="showSection('teaching'); return false;">Teaching</a>
+      <a href="#photos"   onclick="showSection('photos');   return false;">Photos</a>
+      <a href="#cv"       onclick="showSection('cv');       return false;">CV</a>
+    </nav>
+  </header>
 
   <!-- HOME -->
   <div id="home" class="section active">
     <img src="sina-shaikh.jpg" alt="Sina Shaikh" class="profile-image">
     
-    <p>Hi, I'm Sina! I will be starting a Ph.D. in Political Science and Statistics at MIT this fall. </p>
+    <p>Hi, I'm Sina! I will be starting a Ph.D. in Political Science and Statistics at MIT this fall.</p>
     
-    <p> I am interested in studying how computational techniques can be applied to study elections and political communication. 
-        I'm also interested in building new datasets and making existing ones more usable. 
-        For more details on my past work, see <a href="#research" onclick="showSection('research'); return false;">Research</a>.</p>
+    <p>I am interested in studying how computational techniques can be applied to study elections and political communication.
+      I'm also interested in building new datasets and making existing ones more usable.
+      For more details on my past work, see <a href="#research" onclick="showSection('research'); return false;">Research</a>.</p>
 
     <p>Over the past few years, I:
-        <ul>
-            <li>
-                Studied elections and built datasets at the 
-                <a href="https://electionlab.mit.edu/">
-                    MIT Elections Lab
-                </a>
-            </li>
-            <li>
-                Worked for the former 
-                <a href="https://en.wikipedia.org/wiki/Zeid_bin_Ra%27ad">
-                    UN High Commissioner for Human Rights
-                </a>
-            </li>
-            <li>
-                Reported on elections for NBC and made graphics for
-                <a href="https://people.com/celebrity/sexiest-man-alive-2020-men-of-the-year/#928a294d-7c27-46b6-a780-87bee872beb2">
-                    the 13th sexiest man alive
-                </a>
-            </li>
-            <li>
-                Interned at the
-                <a href="https://www.brookings.edu/">
-                    Brookings Institution
-                </a>
-            </li>
-            <li>
-            Graduated <em>Summa Cum Laude</em> from 
-            <a href="https://upenn.edu">Penn</a> with a 
-            <a href="https://catalog.upenn.edu/undergraduate/programs/computer-science-bse/">
-                BSE in CS
-            </a>
-            </li>
-            <li>
-                Won my section in a
-                <a href="https://www.uschess.org/msa/XtblMain.php?202508174362.6-32526468">
-                    chess tournament
-                </a>
-            </li>
-            <li>
-                <a href="https://www.goodreads.com/user/show/152933180">
-                    Read</a> and
-                <a href="https://beliapp.co/app/sinashaikh">
-                    ate</a> as much as possible
-            </li>        
-        </ul></p>
+      <ul>
+        <li>Studied elections and built datasets at the <a href="https://electionlab.mit.edu/">MIT Elections Lab</a></li>
+        <li>Worked for the former <a href="https://en.wikipedia.org/wiki/Zeid_bin_Ra%27ad">UN High Commissioner for Human Rights</a></li>
+        <li>Reported on elections for NBC and made graphics for <a href="https://people.com/celebrity/sexiest-man-alive-2020-men-of-the-year/#928a294d-7c27-46b6-a780-87bee872beb2">the 13th sexiest man alive</a></li>
+        <li>Interned at the <a href="https://www.brookings.edu/">Brookings Institution</a></li>
+        <li>Graduated <em>Summa Cum Laude</em> from <a href="https://upenn.edu">Penn</a> with a <a href="https://catalog.upenn.edu/undergraduate/programs/computer-science-bse/">BSE in CS</a></li>
+        <li>Won my section in a <a href="https://www.uschess.org/msa/XtblMain.php?202508174362.6-32526468">chess tournament</a></li>
+        <li><a href="https://www.goodreads.com/user/show/152933180">Read</a> and <a href="https://beliapp.co/app/sinashaikh">ate</a> as much as possible</li>
+      </ul>
+    </p>
     
     <p>I do my best work with others and am always looking for new collaborators. You can reach me at sinas100@mit.edu.</p>
-
   </div>
 
   <!-- RESEARCH -->
   <div id="research" class="section">
-    <h2>In Progress</h2>
-    
+
+    <h1>In Progress</h1>
+
     <div class="item">
       <div class="item-title">Why the Wait? Preprocessing, Mail Ballot Usage, and Vote Reporting Dynamics in the 2020 and 2024 Elections [<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6077970" target="_blank">Working Paper</a>]</div>
       <div class="item-meta">With Charles Stewart III</div>
@@ -303,7 +264,7 @@
       <div class="item-meta">With Bailey Flanigan and Melody Huang</div>
     </div>
 
-    <h2>Code & Data</h2>
+    <h1>Code &amp; Data</h1>
 
     <div class="item">
       <div class="item-title">Iterated Election Data Scraping [<a href="https://github.com/Sinas100/election_scraper" target="_blank">Code</a>] [<a href="https://www.elexcentral.org/state-updates" target="_blank">Output</a>]</div>
@@ -318,10 +279,11 @@
     </div>
 
     <div class="item">
-        <div class="item-title">Elections Performance Index [<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8S3YPX" target="_blank">Data</a>][<a href="https://elections.mit.edu/#/data/map" target="_blank">Explore</a>]</div>
-      </div>
+      <div class="item-title">Elections Performance Index [<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8S3YPX" target="_blank">Data</a>] [<a href="https://elections.mit.edu/#/data/map" target="_blank">Explore</a>]</div>
+      <div class="item-meta">Described as <a href="https://www.einpresswire.com/article/906363469/new-mexico-continues-to-rank-among-top-10-states-for-election-administration" target="_blank">prestigious</a> by states which ranked highly</div>
+    </div>
 
-    <h2>Selected Articles</h2>
+    <h1>Selected Articles</h1>
 
     <div class="item">
       <div class="item-title">50% of full-time jobs among recent Penn grads are in finance and consulting, DP analysis finds [<a href="https://www.thedp.com/article/2023/09/penn-careers-consulting-finance-wharton-college-post-graduate-outcomes" target="_blank">Read</a>]</div>
@@ -335,6 +297,7 @@
     <div class="item">
       <div class="item-title">Who are Penn's most-cited researchers? Here's what the DP found. [<a href="https://www.thedp.com/article/2024/01/penn-most-cited-researchers" target="_blank">Read</a>]</div>
     </div>
+
   </div>
 
   <!-- TEACHING -->
@@ -358,8 +321,8 @@
     </div>
   </div>
 
-<!-- PHOTOS -->
-<div id="photos" class="section">
+  <!-- PHOTOS -->
+  <div id="photos" class="section">
     <div class="carousel-container">
       <div class="carousel-controls">
         <button class="carousel-btn" onclick="previousImage()">Previous</button>
@@ -370,16 +333,16 @@
       </div>
       <div class="carousel-caption" id="carousel-caption">Sword-Billed Hummingbird</div>
       <div class="carousel">
-        <img src="images/pic10.jpg" alt="Sword-Billed Hummingbird" class="carousel-image active">
-        <img src="images/pic12.jpg" alt="Coyote" class="carousel-image">
-        <img src="images/pic03.jpeg" alt="Lapland Longspur" class="carousel-image">
-        <img src="images/pic04.jpeg" alt="Musk Ox" class="carousel-image">
-        <img src="images/pic07.jpg" alt="Arctic Tern" class="carousel-image">
-        <img src="images/pic05.jpeg" alt="Semipalmated Sandpiper" class="carousel-image">
-        <img src="images/pic06.jpeg" alt="King Eider" class="carousel-image">
-        <img src="images/pic09.jpg" alt="Cerulean Warbler" class="carousel-image">
-        <img src="images/pic08.jpeg" alt="Bluethroat" class="carousel-image">
-        <img src="images/pic11.jpeg" alt="Red-necked Grebe" class="carousel-image">
+        <img src="images/pic10.jpg"   alt="Sword-Billed Hummingbird" class="carousel-image active">
+        <img src="images/pic12.jpg"   alt="Coyote"                   class="carousel-image">
+        <img src="images/pic03.jpeg"  alt="Lapland Longspur"         class="carousel-image">
+        <img src="images/pic04.jpeg"  alt="Musk Ox"                  class="carousel-image">
+        <img src="images/pic07.jpg"   alt="Arctic Tern"              class="carousel-image">
+        <img src="images/pic05.jpeg"  alt="Semipalmated Sandpiper"   class="carousel-image">
+        <img src="images/pic06.jpeg"  alt="King Eider"               class="carousel-image">
+        <img src="images/pic09.jpg"   alt="Cerulean Warbler"         class="carousel-image">
+        <img src="images/pic08.jpeg"  alt="Bluethroat"               class="carousel-image">
+        <img src="images/pic11.jpeg"  alt="Red-necked Grebe"         class="carousel-image">
       </div>
     </div>
   </div>
@@ -395,16 +358,9 @@
     const totalImages = images.length;
     
     const captions = [
-      'Sword-Billed Hummingbird',
-      'Coyote',
-      'Lapland Longspur',
-      'Musk Ox',
-      'Arctic Tern',
-      'Semipalmated Sandpiper',
-      'King Eider',
-      'Cerulean Warbler',
-      'Bluethroat',
-      'Red-necked Grebe'
+      'Sword-Billed Hummingbird','Coyote','Lapland Longspur','Musk Ox',
+      'Arctic Tern','Semipalmated Sandpiper','King Eider','Cerulean Warbler',
+      'Bluethroat','Red-necked Grebe'
     ];
     
     document.getElementById('total-images').textContent = totalImages;
@@ -429,7 +385,6 @@
     function showSection(id) {
       document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
       document.getElementById(id).classList.add('active');
-      
       if (id === 'home') {
         history.pushState(null, '', window.location.pathname);
       } else {
@@ -437,11 +392,8 @@
       }
     }
     
-    // Handle initial hash
     const hash = window.location.hash.slice(1);
-    if (hash && document.getElementById(hash)) {
-      showSection(hash);
-    }
+    if (hash && document.getElementById(hash)) showSection(hash);
   </script>
 
 </body>
