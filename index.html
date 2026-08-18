@@ -146,61 +146,99 @@
       border: 1px solid #e0e0e0;
     }
     
+    /* ── PHOTOS / CAROUSEL ─────────────────────────── */
+
     .carousel-container {
       position: relative;
       max-width: 700px;
       margin: 0 auto;
     }
-    
+
+    /* Fixed-height stage that centers every photo regardless of its
+       own dimensions (portrait, landscape, square, etc). */
     .carousel {
       position: relative;
       width: 100%;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
+      background: #fafafa;
+      border: 1px solid #eee;
     }
-    
+
     .carousel-image {
-      width: 100%;
-      max-height: 600px;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
       height: auto;
       object-fit: contain;
       display: none;
     }
-    
+
     .carousel-image.active { display: block; }
-    
-    .carousel-controls {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-    
-    .carousel-btn {
-      background: #000;
-      color: #fff;
-      border: none;
-      padding: 8px 16px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    
-    .carousel-btn:hover { background: #333; }
-    
-    .carousel-counter {
-      margin-top: 10px;
-      text-align: center;
-      color: #888;
-      font-size: 14px;
-    }
 
     .carousel-caption {
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 18px;
       text-align: center;
       font-size: 16px;
       font-weight: 500;
       color: #000;
     }
+
+    /* Counter now sits below the photo/caption, not above it */
+    .carousel-counter {
+      margin-top: 6px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Arrow icon inside the overlay buttons */
+    .carousel-btn svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    /* Floating overlay arrows on the photo itself */
+    .carousel-controls {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      pointer-events: none;
+    }
+
+    .carousel-btn {
+      pointer-events: auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(2px);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .carousel-btn:hover {
+      background: #fff;
+      transform: scale(1.06);
+    }
+
 
     ul {
       margin-left: 1.5rem;
@@ -345,14 +383,6 @@
   <!-- PHOTOS -->
   <div id="photos" class="section">
     <div class="carousel-container">
-      <div class="carousel-controls">
-        <button class="carousel-btn" onclick="previousImage()">Previous</button>
-        <button class="carousel-btn" onclick="nextImage()">Next</button>
-      </div>
-      <div class="carousel-counter">
-        <span id="current-image">1</span> / <span id="total-images">10</span>
-      </div>
-      <div class="carousel-caption" id="carousel-caption">Sword-Billed Hummingbird</div>
       <div class="carousel">
         <img src="images/pic10.jpg"   alt="Sword-Billed Hummingbird" class="carousel-image active">
         <img src="images/pic12.jpg"   alt="Coyote"                   class="carousel-image">
@@ -364,6 +394,20 @@
         <img src="images/pic09.jpg"   alt="Cerulean Warbler"         class="carousel-image">
         <img src="images/pic08.jpeg"  alt="Bluethroat"               class="carousel-image">
         <img src="images/pic11.jpeg"  alt="Red-necked Grebe"         class="carousel-image">
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="previousImage()" aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="carousel-btn" onclick="nextImage()" aria-label="Next photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="carousel-caption" id="carousel-caption">Sword-Billed Hummingbird</div>
+      <div class="carousel-counter">
+        <span id="current-image">1</span> / <span id="total-images">10</span>
       </div>
     </div>
   </div>
