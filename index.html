@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sina Shaikh</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="kiwi-icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="kiwi-icon.png">
+  <link rel="icon" type="image/x-icon" href="kiwi-icon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="kiwi-icon.png">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background: #fff;
+      color: #000;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 60px 30px;
+      max-width: none;
+      margin: 0;
+    }
+    
+    header {
+      margin-bottom: 40px;
+      max-width: 700px;
+    }
+    
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    
+    nav {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    
+    nav a {
+      color: #888;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    
+    nav a:hover { color: #000; }
+    
+    .section {
+      display: none;
+      max-width: 700px;
+    }
+    
+    .section.active { display: block; }
+    
+    .profile-image {
+      width: 200px;
+      height: auto;
+      margin-bottom: 30px;
+    }
+    
+    p { margin-bottom: 16px; }
+    
+    a { color: #000; text-decoration: underline; }
+    a:hover { color: #0066cc; }
+
+    /* ── RESEARCH ──────────────────────────────────── */
+
+    /* Section header: small caps label with rule below */
+    #research h1 {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #999;
+      border-bottom: 1px solid #e8e8e8;
+      padding-bottom: 8px;
+      margin-top: 40px;
+      margin-bottom: 0;
+    }
+
+    #research h1:first-child {
+      margin-top: 0;
+    }
+
+    /* Items: compact, no separators within a section */
+    #research .item {
+      padding: 5px 0;
+      margin-bottom: 0;
+    }
+
+    .item-title {
+      font-weight: 400;
+      margin-bottom: 1px;
+    }
+    
+    .item-meta {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 0;
+    }
+
+    .item-meta a {
+        color: #888;
+    }
+    
+    .item-title a {
+      font-size: 14px;
+    }
+
+    /* ── END RESEARCH ──────────────────────────────── */
+    
+    h2 {
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #888;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .item { margin-bottom: 20px; }
+    
+    .teach-code {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    
+    .teach-item { margin-bottom: 24px; }
+    
+    .teach-item h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: 1px solid #e0e0e0;
+    }
+    
+    /* ── PHOTOS / CAROUSEL ─────────────────────────── */
+
+    .carousel-container {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Fixed-height stage that centers every photo regardless of its
+       own dimensions (portrait, landscape, square, etc). */
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #fafafa;
+      border: 1px solid #eee;
+    }
+
+    .carousel-image {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: none;
+    }
+
+    .carousel-image.active { display: block; }
+
+    .carousel-caption {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+    }
+
+    /* Counter now sits below the photo/caption, not above it */
+    .carousel-counter {
+      margin-top: 6px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Arrow icon inside the overlay buttons */
+    .carousel-btn svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    /* Floating overlay arrows on the photo itself */
+    .carousel-controls {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      pointer-events: none;
+    }
+
+    .carousel-btn {
+      pointer-events: auto;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(2px);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .carousel-btn:hover {
+      background: #fff;
+      transform: scale(1.06);
+    }
+
+
+    ul {
+      margin-left: 1.5rem;
+      padding-left: 1rem;
+    }
+    
+    @media (max-width: 600px) {
+      body { padding: 30px 20px; }
+      .profile-image { width: 150px; }
+      iframe { height: 600px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><a href="#" onclick="showSection('home'); return false;" style="text-decoration: none; color: #000;">Sina Shaikh</a></h1>
+    <nav>
+      <a href="#home"     onclick="showSection('home');     return false;">About</a>
+      <a href="#research" onclick="showSection('research'); return false;">Research</a>
+      <a href="#teaching" onclick="showSection('teaching'); return false;">Teaching</a>
+      <a href="#photos"   onclick="showSection('photos');   return false;">Photos</a>
+      <a href="#cv"       onclick="showSection('cv');       return false;">CV</a>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <div id="home" class="section active">
+    <img src="sina-shaikh.webp" alt="Sina Shaikh" class="profile-image" width="393" height="400" decoding="async" fetchpriority="high">
+    
+    <p>Hi, I'm Sina! I am a first year Ph.D. student at MIT studying Political Science and 
+        Statistics. I am advised by <a href="https://arwhite.mit.edu/">Ariel White</a>.</p>
+    
+    <p>I am interested in studying how computational techniques can be applied to study elections and political communication.
+      I'm also interested in building new datasets and making existing ones more usable.
+      For more details on my past work, see <a href="#research" onclick="showSection('research'); return false;">Research</a>.</p>
+
+    <p>Over the past few years, I:
+      <ul>
+        <li>Studied elections and built datasets at the <a href="https://electionlab.mit.edu/">MIT Elections Lab</a></li>
+        <li>Worked for the former <a href="https://en.wikipedia.org/wiki/Zeid_bin_Ra%27ad">UN High Commissioner for Human Rights</a></li>
+        <li>Reported on elections for NBC and made graphics for <a href="https://people.com/celebrity/sexiest-man-alive-2020-men-of-the-year/#928a294d-7c27-46b6-a780-87bee872beb2">the 13th sexiest man alive</a></li>
+        <li>Interned at the <a href="https://www.brookings.edu/">Brookings Institution</a></li>
+        <li>Graduated <em>Summa Cum Laude</em> from <a href="https://upenn.edu">Penn</a> with a <a href="https://catalog.upenn.edu/undergraduate/programs/computer-science-bse/">BSE in CS</a></li>
+        <li>Won <a href="https://www.uschess.org/msa/XtblMain.php?202508174362.6-32526468">chess</a>, <a href="https://www.instagram.com/p/B7W56VYheRJ/">soccer</a>, and <a href="https://web.archive.org/web/20221006143441/https://collegemocktrial.org/tournaments-/rr-tournament/amta-summer-tournament-results/">mock trial</a> tournaments.</li>
+        <li><a href="https://www.goodreads.com/user/show/152933180">Read</a> and <a href="https://beliapp.co/app/sinashaikh">ate</a> as much as possible</li>
+      </ul>
+    </p>
+    
+    <p>I do my best work with others and am always looking for new collaborators. 
+        In 2026 I will be presenting at SPSA, ESRA, and POLMETH and attending APSA. I live in Boston and
+        you can reach me at sinas100 at mit.edu.</p>
+  </div>
+
+  <!-- RESEARCH -->
+  <div id="research" class="section">
+
+    <h1>In Progress</h1>
+
+    <div class="item">
+      <div class="item-title">Why the Wait? Preprocessing, Mail Ballot Usage, and Vote Reporting Dynamics in the 2020 and 2024 Elections [<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6077970" target="_blank">Working Paper</a>]</div>
+      <div class="item-meta">With <a href="https://web.mit.edu/cstewart/www/" target="_blank">Charles Stewart III</a> (presentation at ESRA 2025 and SPSA 2026)</div>
+    </div>
+<!-- 
+    <div class="item">
+      <div class="item-title">A Two-Phase Algorithm for Optimal Quota Sampling</div>
+      <div class="item-meta">With <a href="https://sites.google.com/mit.edu/bailey-flanigan/home" target="_blank">Bailey Flanigan</a> and <a href="https://melodyyhuang.com/" target="_blank">Melody Huang</a> (presentation at POLMETH 2026)</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">Using the The Election Administration
+            and Voting Survey (EAVS): A Framework for Error Detection and Correction</div>
+        <div class="item-meta">With <a href="https://ethansinger.me/" target="_blank">Ethan Singer</a> (presentation at ESRA 2026)</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">American voter guides from 1998-2024</div>
+        <div class="item-meta">With <a href="https://mreece13.github.io/" target="_blank">Mason Reece</a>, 
+            <a href="https://www.zaynesember.com/" target="_blank">Zayne Sember</a>,
+            <a href="https://joseph-loffredo.com/" target="_blank">Joe Loffredo</a>,
+            <a href="https://honordurham.github.io/" target="_blank">Honor Durham</a>,
+             Ning Soong, and <a href="https://web.mit.edu/cstewart/www/" target="_blank">Charles Stewart III</a> (presentation at ESRA 2026)</div>
+    </div> -->
+
+
+    <h1>Code &amp; Data</h1>
+
+    <!-- <div class="item">
+      <div class="item-title">Iterated Election Data Scraping [<a href="https://github.com/Sinas100/election_scraper" target="_blank">Code</a>] [<a href="https://www.elexcentral.org/state-updates" target="_blank">Output</a>]</div>
+    </div> -->
+
+    <div class="item">
+      <div class="item-title">County Level Presidential Election Results [<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ" target="_blank">Data</a>]</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Precinct Level Election Results [<a href="https://dataverse.harvard.edu/dataverse/2024_precincts" target="_blank">Data</a>]</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Elections Performance Index [<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8S3YPX" target="_blank">Data</a>] [<a href="https://elections.mit.edu/#/data/map" target="_blank">Explore</a>]</div>
+      <div class="item-meta">Described as <a href="https://www.einpresswire.com/article/906363469/new-mexico-continues-to-rank-among-top-10-states-for-election-administration" target="_blank">prestigious</a> by states which ranked highly</div>
+    </div>
+
+    <h1>Selected Articles</h1>
+
+    <div class="item">
+      <div class="item-title">50% of full-time jobs among recent Penn grads are in finance and consulting, DP analysis finds [<a href="https://www.thedp.com/article/2023/09/penn-careers-consulting-finance-wharton-college-post-graduate-outcomes" target="_blank">Read</a>]</div>
+      <div class="item-meta">Cited in <a href="https://www.theatlantic.com/ideas/archive/2023/10/israel-hamas-war-college-campuses-activism/675677/" target="_blank">The Atlantic</a> and <a href="https://www.phillymag.com/news/2024/01/27/penn-university-antisemitism-fallout/" target="_blank">Philadelphia Magazine</a></div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Penn, in Washington: the numbers behind 200 years of alumni, affiliates in Congress [<a href="https://www.thedp.com/article/2024/03/penn-alumni-affiliates-congress-history" target="_blank">Read</a>]</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Who are Penn's most-cited researchers? Here's what the DP found. [<a href="https://www.thedp.com/article/2024/01/penn-most-cited-researchers" target="_blank">Read</a>]</div>
+    </div>
+
+  </div>
+
+  <!-- TEACHING -->
+  <div id="teaching" class="section">
+    <div class="teach-item">
+      <div class="teach-code">CIS 110 · University of Pennsylvania</div>
+      <h3>Teaching Assistant — Introduction to Computer Programming</h3>
+      <p>Introductory OCaml and Java.</p>
+    </div>
+
+    <div class="teach-item">
+      <div class="teach-code">GAFL 5310 · University of Pennsylvania</div>
+      <h3>Teaching Assistant — Data Science for Public Policy</h3>
+      <p>Graduate course on the R Shiny framework, statistics, and mapping.</p>
+    </div>
+
+    <div class="teach-item">
+      <div class="teach-code">CRIM 4012 · University of Pennsylvania</div>
+      <h3>Tutor — Machine Learning for Social Science</h3>
+      <p>Introduction to supervised and unsupervised learning, deep learning, and natural language processing.</p>
+    </div>
+  </div>
+
+  <!-- PHOTOS -->
+  <div id="photos" class="section">
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="images/pic10.webp" alt="Sword-Billed Hummingbird" class="carousel-image active" width="639" height="960" decoding="async">
+        <img src="images/pic12.webp" alt="Coyote" class="carousel-image" width="788" height="960" decoding="async" loading="lazy">
+        <img src="images/pic03.webp" alt="Lapland Longspur" class="carousel-image" width="1400" height="931" decoding="async" loading="lazy">
+        <img src="images/pic04.webp" alt="Musk Ox" class="carousel-image" width="1400" height="931" decoding="async" loading="lazy">
+        <img src="images/pic07.webp" alt="Arctic Tern" class="carousel-image" width="1233" height="960" decoding="async" loading="lazy">
+        <img src="images/pic05.webp" alt="Semipalmated Sandpiper" class="carousel-image" width="1400" height="930" decoding="async" loading="lazy">
+        <img src="images/pic06.webp" alt="King Eider" class="carousel-image" width="1400" height="931" decoding="async" loading="lazy">
+        <img src="images/pic09.webp" alt="Cerulean Warbler" class="carousel-image" width="1400" height="929" decoding="async" loading="lazy">
+        <img src="images/pic08.webp" alt="Bluethroat" class="carousel-image" width="1400" height="930" decoding="async" loading="lazy">
+        <img src="images/pic11.webp" alt="Red-necked Grebe" class="carousel-image" width="1400" height="932" decoding="async" loading="lazy">
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="previousImage()" aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="carousel-btn" onclick="nextImage()" aria-label="Next photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="carousel-caption" id="carousel-caption">Sword-Billed Hummingbird</div>
+      <div class="carousel-counter">
+        <span id="current-image">1</span> / <span id="total-images">10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV -->
+  <div id="cv" class="section">
+    <iframe data-src="2025_09_03_CV.pdf" title="Sina Shaikh CV"></iframe>
+  </div>
+
+  <script>
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    const totalImages = images.length;
+    
+    const captions = [
+      'Sword-Billed Hummingbird','Coyote','Lapland Longspur','Musk Ox',
+      'Arctic Tern','Semipalmated Sandpiper','King Eider','Cerulean Warbler',
+      'Bluethroat','Red-necked Grebe'
+    ];
+    
+    document.getElementById('total-images').textContent = totalImages;
+    
+    function showImage(index) {
+      images.forEach(img => img.classList.remove('active'));
+      images[index].classList.add('active');
+      document.getElementById('current-image').textContent = index + 1;
+      document.getElementById('carousel-caption').textContent = captions[index];
+      preloadNeighbors(index);
+    }
+
+    // Fetch the next/previous photo ahead of time so arrows feel instant
+    function preloadNeighbors(index) {
+      [(index + 1) % totalImages, (index - 1 + totalImages) % totalImages].forEach(i => {
+        images[i].loading = 'eager';
+        const p = new Image();
+        p.src = images[i].currentSrc || images[i].src;
+      });
+    }
+    
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % totalImages;
+      showImage(currentImageIndex);
+    }
+    
+    function previousImage() {
+      currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+      showImage(currentImageIndex);
+    }
+    
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      if (id === 'cv') {
+        const f = document.querySelector('#cv iframe');
+        if (!f.src) f.src = f.dataset.src;
+      }
+      if (id === 'photos') preloadNeighbors(currentImageIndex);
+      if (id === 'home') {
+        history.pushState(null, '', window.location.pathname);
+      } else {
+        history.pushState(null, '', '#' + id);
+      }
+    }
+    
+    const hash = window.location.hash.slice(1);
+    if (hash && document.getElementById(hash)) showSection(hash);
+  </script>
+
+</body>
+</html>
