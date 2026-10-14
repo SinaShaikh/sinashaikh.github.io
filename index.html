@@ -10,14 +10,16 @@
   <link rel="apple-touch-icon" sizes="180x180" href="kiwi-icon.png">
   
   <style>
+    :root { --accent: #8c1515; }  /* one place to change the colour of bars/rules */
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
       background: #fff;
       color: #000;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
+      font-family: Verdana, Geneva, 'DejaVu Sans', Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
       padding: 60px 30px;
       max-width: none;
       margin: 0;
@@ -28,29 +30,29 @@
       max-width: 700px;
     }
     
+    header { max-width: 760px; }
+
     h1 {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 20px;
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
-    
+
     nav {
       display: flex;
-      gap: 16px;
-      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+      padding: 6px 0;
+      border-top: 2px solid var(--accent);
+      border-bottom: 1px solid #ccc;
     }
-    
-    nav a {
-      color: #888;
-      text-decoration: none;
-      font-size: 15px;
-    }
-    
-    nav a:hover { color: #000; }
+
+    nav span { color: #666; }
     
     .section {
       display: none;
-      max-width: 700px;
+      max-width: 760px;
     }
     
     .section.active { display: block; }
@@ -63,22 +65,23 @@
     
     p { margin-bottom: 16px; }
     
-    a { color: #000; text-decoration: underline; }
-    a:hover { color: #0066cc; }
+    a { text-decoration: underline; }
+    a:link { color: #0000ee; }
+    a:visited { color: #551a8b; }
+    a:hover { color: #0000ee; }
+    a:active { color: #ee0000; }
 
     /* ── RESEARCH ──────────────────────────────────── */
 
-    /* Section header: small caps label with rule below */
+    /* Section header: solid bar */
     #research h1 {
-      font-size: 11px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #999;
-      border-bottom: 1px solid #e8e8e8;
-      padding-bottom: 8px;
-      margin-top: 40px;
-      margin-bottom: 0;
+      font-size: 15px;
+      font-weight: bold;
+      color: #fff;
+      background: var(--accent);
+      padding: 4px 10px;
+      margin-top: 30px;
+      margin-bottom: 12px;
     }
 
     #research h1:first-child {
@@ -87,59 +90,30 @@
 
     /* Items: compact, no separators within a section */
     #research .item {
-      padding: 5px 0;
-      margin-bottom: 0;
+      padding: 0;
+      margin-bottom: 14px;
     }
 
-    .item-title {
-      font-weight: 400;
-      margin-bottom: 1px;
-    }
-    
-    .item-meta {
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 0;
-    }
+    #research .item .when { color: #444; }
 
-    .item-meta a {
-        color: #888;
-    }
     
-    .item-title a {
-      font-size: 14px;
-    }
 
     /* ── END RESEARCH ──────────────────────────────── */
     
-    h2 {
-      font-size: 13px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      color: #888;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-
     .item { margin-bottom: 20px; }
     
-    .teach-code {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      color: #888;
-      margin-bottom: 4px;
+    #teaching h1 {
+      font-size: 15px;
+      font-weight: bold;
+      color: #fff;
+      background: var(--accent);
+      padding: 4px 10px;
+      margin-bottom: 12px;
     }
-    
-    .teach-item { margin-bottom: 24px; }
-    
-    .teach-item h3 {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-    
+
+    #teaching ul { margin-left: 1.2rem; padding-left: 0.5rem; }
+    #teaching li { margin-bottom: 10px; }
+
     iframe {
       width: 100%;
       height: 800px;
@@ -182,8 +156,8 @@
     .carousel-caption {
       margin-top: 18px;
       text-align: center;
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: bold;
       color: #000;
     }
 
@@ -192,9 +166,8 @@
       margin-top: 6px;
       margin-bottom: 20px;
       text-align: center;
-      color: #888;
-      font-size: 13px;
-      letter-spacing: 0.02em;
+      color: #666;
+      font-size: 12px;
     }
 
     /* Arrow icon inside the overlay buttons */
@@ -257,10 +230,10 @@
   <header>
     <h1><a href="#" onclick="showSection('home'); return false;" style="text-decoration: none; color: #000;">Sina Shaikh</a></h1>
     <nav>
-      <a href="#home"     onclick="showSection('home');     return false;">About</a>
-      <a href="#research" onclick="showSection('research'); return false;">Research</a>
-      <a href="#teaching" onclick="showSection('teaching'); return false;">Teaching</a>
-      <a href="#photos"   onclick="showSection('photos');   return false;">Photos</a>
+      <a href="#home"     onclick="showSection('home');     return false;">About</a> <span>|</span>
+      <a href="#research" onclick="showSection('research'); return false;">Research</a> <span>|</span>
+      <a href="#teaching" onclick="showSection('teaching'); return false;">Teaching</a> <span>|</span>
+      <a href="#photos"   onclick="showSection('photos');   return false;">Photos</a> <span>|</span>
       <a href="#cv"       onclick="showSection('cv');       return false;">CV</a>
     </nav>
   </header>
@@ -299,8 +272,8 @@
     <h1>In Progress</h1>
 
     <div class="item">
-      <div class="item-title">Why the Wait? Preprocessing, Mail Ballot Usage, and Vote Reporting Dynamics in the 2020 and 2024 Elections [<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6077970" target="_blank">Working Paper</a>]</div>
-      <div class="item-meta">With <a href="https://web.mit.edu/cstewart/www/" target="_blank">Charles Stewart III</a> (presentation at ESRA 2025 and SPSA 2026)</div>
+      &ldquo;<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6077970" target="_blank">Why the Wait? Preprocessing, Mail Ballot Usage, and Vote Reporting Dynamics in the 2020 and 2024 Elections</a>&rdquo;
+      (with <a href="https://web.mit.edu/cstewart/www/" target="_blank">Charles Stewart III</a>), <em>working paper</em>; presented at ESRA 2025 and SPSA 2026
     </div>
 <!-- 
     <div class="item">
@@ -331,54 +304,43 @@
     </div> -->
 
     <div class="item">
-      <div class="item-title">County Level Presidential Election Results [<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ" target="_blank">Data</a>]</div>
+      &ldquo;County Level Presidential Election Results&rdquo; (<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ" target="_blank">data</a>)
     </div>
 
     <div class="item">
-      <div class="item-title">Precinct Level Election Results [<a href="https://dataverse.harvard.edu/dataverse/2024_precincts" target="_blank">Data</a>]</div>
+      &ldquo;Precinct Level Election Results&rdquo; (<a href="https://dataverse.harvard.edu/dataverse/2024_precincts" target="_blank">data</a>)
     </div>
 
     <div class="item">
-      <div class="item-title">Elections Performance Index [<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8S3YPX" target="_blank">Data</a>] [<a href="https://elections.mit.edu/#/data/map" target="_blank">Explore</a>]</div>
-      <div class="item-meta">Described as <a href="https://www.einpresswire.com/article/906363469/new-mexico-continues-to-rank-among-top-10-states-for-election-administration" target="_blank">prestigious</a> by states which ranked highly</div>
+      &ldquo;Elections Performance Index&rdquo; (<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/8S3YPX" target="_blank">data</a>, <a href="https://elections.mit.edu/#/data/map" target="_blank">explore</a>).
+      Described as <a href="https://www.einpresswire.com/article/906363469/new-mexico-continues-to-rank-among-top-10-states-for-election-administration" target="_blank">prestigious</a> by states which ranked highly
     </div>
 
     <h1>Selected Articles</h1>
 
     <div class="item">
-      <div class="item-title">50% of full-time jobs among recent Penn grads are in finance and consulting, DP analysis finds [<a href="https://www.thedp.com/article/2023/09/penn-careers-consulting-finance-wharton-college-post-graduate-outcomes" target="_blank">Read</a>]</div>
-      <div class="item-meta">Cited in <a href="https://www.theatlantic.com/ideas/archive/2023/10/israel-hamas-war-college-campuses-activism/675677/" target="_blank">The Atlantic</a> and <a href="https://www.phillymag.com/news/2024/01/27/penn-university-antisemitism-fallout/" target="_blank">Philadelphia Magazine</a></div>
+      &ldquo;<a href="https://www.thedp.com/article/2023/09/penn-careers-consulting-finance-wharton-college-post-graduate-outcomes" target="_blank">50% of full-time jobs among recent Penn grads are in finance and consulting, DP analysis finds</a>&rdquo;
+      (cited in <a href="https://www.theatlantic.com/ideas/archive/2023/10/israel-hamas-war-college-campuses-activism/675677/" target="_blank">The Atlantic</a> and <a href="https://www.phillymag.com/news/2024/01/27/penn-university-antisemitism-fallout/" target="_blank">Philadelphia Magazine</a>)
     </div>
 
     <div class="item">
-      <div class="item-title">Penn, in Washington: the numbers behind 200 years of alumni, affiliates in Congress [<a href="https://www.thedp.com/article/2024/03/penn-alumni-affiliates-congress-history" target="_blank">Read</a>]</div>
+      &ldquo;<a href="https://www.thedp.com/article/2024/03/penn-alumni-affiliates-congress-history" target="_blank">Penn, in Washington: the numbers behind 200 years of alumni, affiliates in Congress</a>&rdquo;
     </div>
 
     <div class="item">
-      <div class="item-title">Who are Penn's most-cited researchers? Here's what the DP found. [<a href="https://www.thedp.com/article/2024/01/penn-most-cited-researchers" target="_blank">Read</a>]</div>
+      &ldquo;<a href="https://www.thedp.com/article/2024/01/penn-most-cited-researchers" target="_blank">Who are Penn's most-cited researchers? Here's what the DP found.</a>&rdquo;
     </div>
 
   </div>
 
   <!-- TEACHING -->
   <div id="teaching" class="section">
-    <div class="teach-item">
-      <div class="teach-code">CIS 110 · University of Pennsylvania</div>
-      <h3>Teaching Assistant — Introduction to Computer Programming</h3>
-      <p>Introductory OCaml and Java.</p>
-    </div>
-
-    <div class="teach-item">
-      <div class="teach-code">GAFL 5310 · University of Pennsylvania</div>
-      <h3>Teaching Assistant — Data Science for Public Policy</h3>
-      <p>Graduate course on the R Shiny framework, statistics, and mapping.</p>
-    </div>
-
-    <div class="teach-item">
-      <div class="teach-code">CRIM 4012 · University of Pennsylvania</div>
-      <h3>Tutor — Machine Learning for Social Science</h3>
-      <p>Introduction to supervised and unsupervised learning, deep learning, and natural language processing.</p>
-    </div>
+    <h1>Teaching</h1>
+    <ul>
+      <li>CIS 110, University of Pennsylvania: Teaching Assistant, Introduction to Computer Programming (introductory OCaml and Java)</li>
+      <li>GAFL 5310, University of Pennsylvania: Teaching Assistant, Data Science for Public Policy (graduate course on the R Shiny framework, statistics, and mapping)</li>
+      <li>CRIM 4012, University of Pennsylvania: Tutor, Machine Learning for Social Science (supervised and unsupervised learning, deep learning, and natural language processing)</li>
+    </ul>
   </div>
 
   <!-- PHOTOS -->
